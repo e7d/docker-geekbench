@@ -35,5 +35,5 @@ else
 fi
 
 echo "#!/bin/bash
-/opt/geekbench/${EXECUTABLE}" >/opt/geekbench/geekbench
+/opt/geekbench/${EXECUTABLE} \$*" >/opt/geekbench/geekbench
 chmod +x /opt/geekbench/geekbench
