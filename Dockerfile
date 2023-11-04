@@ -7,5 +7,6 @@ RUN /setup.sh
 
 FROM ubuntu:22.04
 COPY --from=setup /opt/geekbench /opt/geekbench
+COPY --from=setup /entrypoint.sh /entrypoint.sh
 STOPSIGNAL SIGINT
-ENTRYPOINT [ "/opt/geekbench/geekbench" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
