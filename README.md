@@ -4,12 +4,12 @@
 The same, but through Docker, also for ARM.
 
 - Maintained by: [e7d](https://github.com/e7d/docker-geekbench)
-- Image avalaible on: [Docker Hub](https://hub.docker.com/r/e7db/geekbench)
+- Image available on: [Docker Hub](https://hub.docker.com/r/e7db/geekbench)
 
 ## Supported tags
 
-- `6.2.1`, `6.2`, `6`, `latest`
-- `5.5.1`, `5.5`, `5`
+- `6.x.y`, `6.x`, `6`, `latest`
+- `5.x.y`, `5.x`, `5`
 
 **Notes:**  
 - Supported architectures: `amd64`, `arm64/v8`, `arm/v7`.
