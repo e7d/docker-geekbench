@@ -22,15 +22,15 @@ function build_image() {
     local MAJOR_VERSION=${VERSION%.*.*}
     local TAGS=$(to_docker_tags_param ${VERSION} ${ADDITIONAL_TAG})
 
-    mkdir -p ${DIR}/build/geekbench${MAJOR_VERSION} ${DIR}/cache/geekbench${MAJOR_VERSION}
+    mkdir -p ${DIR}/build/geekbench${MAJOR_VERSION}
 
     docker buildx create \
         --name e7db-geekbench${MAJOR_VERSION} \
         --platform ${PLATFORMS} \
         --use
     docker buildx build \
-        --cache-from type=local,src=${DIR}/cache/geekbench${MAJOR_VERSION} \
-        --cache-to type=local,dest=${DIR}/cache/geekbench${MAJOR_VERSION} \
+        --cache-from type=registry,ref=e7db/geekbench:${MAJOR_VERSION}-cache \
+        --cache-to type=registry,ref=e7db/geekbench:${MAJOR_VERSION}-cache \
         --file ${DIR}/Dockerfile \
         --metadata-file ${DIR}/build/geekbench${MAJOR_VERSION}/metadata.json \
         --output type=registry \
