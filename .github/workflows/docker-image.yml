@@ -30,7 +30,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push Docker image (test)
+      - name: Build and push Docker image
         run: ./build.sh
       - name: Update repo description
         if: ${{ github.ref == 'refs/heads/main' }}

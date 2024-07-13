@@ -8,24 +8,20 @@ The same, but through Docker, also for ARM.
 
 ## Supported tags
 
-- `6.x.y`, `6.x`, `6`, `latest`
-- `5.x.y`, `5.x`, `5`
+| Tag | `amd64` | `arm64/v8` | `arm/v7` |
+|-----|---------|------------|----------|
+| `6.x.y`, `6.x`, `6`, `latest` | ✅ | ✅ | |
+| `5.x.y`, `5.x`, `5` | ✅ | ✅ | ✅ |
+| `4.x.y`, `4.x`, `4` | ✅ | | |
+| `3.x.y`, `3.x`, `3` | ✅ | | |
+| `2.x.y`, `2.x`, `2` | ✅ | | |
+
 
 **Notes:**  
-- Supported architectures: `amd64`, `arm64/v8`, `arm/v7`.
 - Geekbench for ARM is available through [Preview Versions](https://www.geekbench.com/preview/). Issues are to be expected.
-- Geekbench 6 is not available for the `armv7` architecture.
 
 ## Usage
 
-- Geekbench 6:
 ```
-docker pull e7db/geekbench:6
-docker run -it --rm e7db/geekbench:6
-```
-
-- Geekbench 5:
-```
-docker pull e7db/geekbench:5
-docker run -it --rm e7db/geekbench:5
+docker run -it --rm e7db/geekbench
 ```

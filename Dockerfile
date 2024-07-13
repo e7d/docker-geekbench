@@ -1,11 +1,17 @@
-FROM ubuntu:22.04 AS setup
+FROM ubuntu:latest AS setup
 ARG VERSION
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get install -y wget
 COPY setup.sh /setup.sh
-ADD https://cdn.geekbench.com/Geekbench-${VERSION}-Linux.tar.gz /tmp/Geekbench-${VERSION}-Linux.tar.gz
-ADD https://cdn.geekbench.com/Geekbench-${VERSION}-LinuxARMPreview.tar.gz /tmp/Geekbench-${VERSION}-LinuxARMPreview.tar.gz
 RUN /setup.sh
 
-FROM ubuntu:22.04
+FROM ubuntu:latest
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 COPY --from=setup /opt/geekbench /opt/geekbench
 COPY --from=setup /entrypoint.sh /entrypoint.sh
 STOPSIGNAL SIGINT
