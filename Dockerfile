@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS setup
+FROM ubuntu:24.10 AS setup
 ARG VERSION
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
@@ -6,7 +6,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 COPY setup.sh /setup.sh
 RUN /setup.sh
 
-FROM ubuntu:latest
+FROM ubuntu:24.10
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get upgrade -y && \
